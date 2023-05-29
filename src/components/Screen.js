@@ -1,14 +1,10 @@
 import React from "react";
 import "./Screen.css";
-import budgetBossScreen from "../assets/budget-boss-screen.png";
-import budgetBossVideo from "../assets/budget-boss.mp4";
 
-const Screen = ({ link }) => {
-  console.log(link);
-
+const Screen = ({ video }) => {
   return (
     <div className="flex screen">
-      <video src={budgetBossVideo} loop autoPlay muted />
+      <video src={video} loop autoPlay muted />
     </div>
   );
 };
