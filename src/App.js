@@ -5,6 +5,7 @@ function App() {
   return (
     <>
       <Header />
+      <main className="flex"></main>
     </>
   );
 }

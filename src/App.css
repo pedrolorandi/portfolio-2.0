@@ -1,6 +1,11 @@
+body {
+  padding: 1em;
+}
+
 .flex {
   display: flex;
 }
 
-.header {
+.icon {
+  height: 1.25em;
 }
