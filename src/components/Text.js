@@ -11,7 +11,7 @@ import {
 } from "react-icons/si";
 import { ImEmbed2 } from "react-icons/im";
 
-const size = "2em";
+const size = "3em";
 
 const ICONS = {
   FaNodeJs: <FaNodeJs size={size} color="#333" />,
@@ -30,15 +30,17 @@ function Text({ title, description, techStack, textColor }) {
     <div className="flex text-block">
       <h2 style={{ color: textColor }}>{title}</h2>
       <p style={{ color: textColor }}>{description}</p>
-      <div className="flex tech-stack">
-        {techStack.map((tech) => {
-          return (
-            <div className="flex tech">
-              <span>{tech.title}</span>
-              {ICONS[tech.icon]}
-            </div>
-          );
-        })}
+      <div className="tech-stack-container">
+        <div className="flex tech-stack">
+          {techStack.map((tech) => {
+            return (
+              <div className="flex tech">
+                <span>{tech.title}</span>
+                {ICONS[tech.icon]}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

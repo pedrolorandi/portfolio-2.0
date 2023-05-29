@@ -8,9 +8,11 @@
 }
 
 main {
-  background-color: red;
   min-height: 100%;
   flex: 1;
+  flex-direction: row;
+  align-items: center;
+  padding: 2em;
 }
 
 .navigation {
