@@ -1,11 +1,28 @@
-body {
+.container {
+  min-height: 100vh;
+  max-height: 100vh;
+  max-width: 100vw;
   padding: 1em;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.flex {
-  display: flex;
+main {
+  background-color: red;
+  min-height: 100%;
+  flex: 1;
 }
 
-.icon {
-  height: 1.25em;
+.navigation {
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+}
+
+.pagination {
+  border: 1px solid;
+  border-radius: 100%;
+  width: 0.75em;
+  height: 0.75em;
+  cursor: pointer;
 }

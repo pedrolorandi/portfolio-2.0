@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.icon {
+  height: 1.25em;
+}
+
 .buttons {
   align-items: center;
   gap: 1em;
@@ -17,4 +21,5 @@
 .email span {
   margin-left: 0.7em;
   line-height: 0;
+  font-size: 0.875em;
 }

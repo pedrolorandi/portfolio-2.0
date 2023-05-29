@@ -2,23 +2,30 @@ import React from "react";
 import "./Header.css";
 
 import { FaGithub, FaLinkedinIn, FaCopy, FaFileDownload } from "react-icons/fa";
-import { IconContext } from "react-icons";
 import portfolio from "../assets/Pedro Lorandi - Resume.pdf";
 
-const Header = () => {
+const Header = ({ textColor, buttonColor }) => {
   return (
     <div className="header flex">
-      <h1>Pedro Lorandi</h1>
+      <h1 style={{ color: textColor }}>Pedro Lorandi</h1>
       <div className="buttons flex">
         <a href="https://github.com/pedrolorandi" target="_blank">
-          <FaGithub size="1.25em" title="github.com/pedrolorandi" />
+          <FaGithub
+            size="1.25em"
+            title="github.com/pedrolorandi"
+            color={textColor}
+          />
         </a>
         <a href="https://www.linkedin.com/in/pedrolorandi/" target="_blank">
-          <FaLinkedinIn size="1.25em" title="linkedin.com/in/pedrolorandi/" />
+          <FaLinkedinIn
+            size="1.25em"
+            title="linkedin.com/in/pedrolorandi/"
+            color={textColor}
+          />
         </a>
         <div className="flex email">
-          <FaCopy size="1.25em" title="Copy email" />
-          <span>hello@pedrolorandi.com</span>
+          <FaCopy size="1.25em" title="Copy email" color={textColor} />
+          <span style={{ color: textColor }}>hello@pedrolorandi.com</span>
         </div>
         <a
           className="button"
@@ -26,8 +33,9 @@ const Header = () => {
           download="Pedro Lorandi - Full-Stack Web Developer"
           target="_blank"
           rel="noreferrer"
+          style={{ backgroundColor: buttonColor }}
         >
-          <FaFileDownload size="1.25em" />
+          <FaFileDownload size="1.25em" color="#333" />
           <span>Download Resume</span>
         </a>
       </div>

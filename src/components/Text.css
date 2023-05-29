@@ -1,0 +1,16 @@
+.text-block {
+  flex: 1;
+  flex-direction: column;
+}
+
+.tech-stack {
+  flex-direction: row;
+}
+
+.tech {
+  flex-direction: column;
+}
+
+.tech span {
+  color: #333;
+}

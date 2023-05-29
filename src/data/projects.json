@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 0,
     "title": "BudgetBoss",
     "description": "The final Project for Lighthouse Labs. A user-friendly budgeting app that helps you effortlessly manage your finances, track expenses, and achieve your financial goals.",
     "background-color": "#0A9396",
@@ -9,24 +9,24 @@
     "tech_stack": [
       {
         "title": "React.js",
-        "icon": "reactjs.png"
+        "icon": "FaReact"
       },
       {
         "title": "Next.js",
-        "icon": "nextjs.png"
+        "icon": "SiNextdotjs"
       },
       {
         "title": "Tailwind",
-        "icon": "tailwind.png"
+        "icon": "SiTailwindcss"
       },
       {
         "title": "Prisma",
-        "icon": "prisma.png"
+        "icon": "SiPrisma"
       }
     ]
   },
   {
-    "id": 2,
+    "id": 1,
     "title": "Card Heroes",
     "description": "Card Heroes is the ultimate destination for trading card enthusiasts. With over a million cards to choose from, we have the perfect card for every collector.",
     "background-color": "#CCA92D",
@@ -35,28 +35,28 @@
     "tech_stack": [
       {
         "title": "EJS",
-        "icon": "ejs.png"
+        "icon": "ImEmbed2"
       },
       {
         "title": "SASS",
-        "icon": "sass.png"
+        "icon": "FaSass"
       },
       {
         "title": "Node.js",
-        "icon": "nodejs.png"
+        "icon": "FaNodeJs"
       },
       {
         "title": "Express.js",
-        "icon": "expressjs.png"
+        "icon": "SiExpress"
       },
       {
         "title": "PostgreSQL",
-        "icon": "postgresql.png"
+        "icon": "SiPostgresql"
       }
     ]
   },
   {
-    "id": 3,
+    "id": 2,
     "title": "Interview Scheduler",
     "description": "Interview Scheduler is a single-page application (SPA) that allows users to book technical interviews between students and mentors.",
     "background-color": "#338FE4",
@@ -65,11 +65,11 @@
     "tech_stack": [
       {
         "title": "React.js",
-        "icon": "reactjs.png"
+        "icon": "FaReact"
       },
       {
         "title": "SASS",
-        "icon": "sass.png"
+        "icon": "FaSass"
       }
     ]
   }
