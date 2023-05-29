@@ -56,11 +56,12 @@ function App() {
             textColor={projects[carouselState]["text-color"]}
             link={projects[carouselState].link}
           />
-          <Screen />
+          <Screen link={projects[carouselState].link} />
           <div className="flex navigation">
-            {projects.map((project) => {
+            {projects.map((project, idx) => {
               return (
                 <span
+                  key={idx}
                   className="flex pagination"
                   style={{
                     borderColor: projects[carouselState]["text-color"],
