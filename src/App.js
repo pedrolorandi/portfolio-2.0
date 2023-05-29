@@ -38,40 +38,43 @@ function App() {
   }, [isScrolling]);
 
   return (
-    <div
-      className="container flex"
-      style={{ backgroundColor: projects[carouselState]["background-color"] }}
-    >
-      <Header
-        textColor={projects[carouselState]["text-color"]}
-        buttonColor={projects[carouselState]["contrast-color"]}
-      />
-      <main className="flex">
-        <Text
-          title={projects[carouselState].title}
-          description={projects[carouselState].description}
-          techStack={projects[carouselState].tech_stack}
+    <>
+      <div className="shadow"></div>
+      <div
+        className="flex container"
+        style={{ backgroundColor: projects[carouselState]["background-color"] }}
+      >
+        <Header
           textColor={projects[carouselState]["text-color"]}
+          buttonColor={projects[carouselState]["contrast-color"]}
         />
-        {/* <Screen /> */}
-        <div className="flex navigation">
-          {projects.map((project) => {
-            return (
-              <span
-                className="flex pagination"
-                style={{
-                  borderColor: projects[carouselState]["text-color"],
-                  backgroundColor:
-                    carouselState === project.id &&
-                    projects[carouselState]["text-color"],
-                }}
-                onClick={() => setCarouselState(project.id)}
-              ></span>
-            );
-          })}
-        </div>
-      </main>
-    </div>
+        <main className="flex">
+          <Text
+            title={projects[carouselState].title}
+            description={projects[carouselState].description}
+            techStack={projects[carouselState].tech_stack}
+            textColor={projects[carouselState]["text-color"]}
+          />
+          {/* <Screen /> */}
+          <div className="flex navigation">
+            {projects.map((project) => {
+              return (
+                <span
+                  className="flex pagination"
+                  style={{
+                    borderColor: projects[carouselState]["text-color"],
+                    backgroundColor:
+                      carouselState === project.id &&
+                      projects[carouselState]["text-color"],
+                  }}
+                  onClick={() => setCarouselState(project.id)}
+                ></span>
+              );
+            })}
+          </div>
+        </main>
+      </div>
+    </>
   );
 }
 
