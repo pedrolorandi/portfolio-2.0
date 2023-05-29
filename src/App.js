@@ -54,8 +54,9 @@ function App() {
             description={projects[carouselState].description}
             techStack={projects[carouselState].tech_stack}
             textColor={projects[carouselState]["text-color"]}
+            link={projects[carouselState].link}
           />
-          {/* <Screen /> */}
+          <Screen />
           <div className="flex navigation">
             {projects.map((project) => {
               return (

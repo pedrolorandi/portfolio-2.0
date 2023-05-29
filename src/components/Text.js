@@ -1,7 +1,7 @@
 import React from "react";
 import "./Text.css";
 
-import { FaNodeJs, FaReact, FaSass } from "react-icons/fa";
+import { FaGithub, FaNodeJs, FaReact, FaSass } from "react-icons/fa";
 import {
   SiExpress,
   SiNextdotjs,
@@ -25,10 +25,20 @@ const ICONS = {
   ImEmbed2: <ImEmbed2 size={size} color="#333" />,
 };
 
-function Text({ title, description, techStack, textColor }) {
+function Text({ title, description, techStack, textColor, link }) {
   return (
     <div className="flex text-block">
       <h2 style={{ color: textColor }}>{title}</h2>
+      <div className="button-container">
+        <a
+          className="button"
+          href={`https://github.com/pedrolorandi/${link}`}
+          target="_blank"
+        >
+          <FaGithub size="1.25em" color="#fff" />
+          <span>View on GitHub</span>
+        </a>
+      </div>
       <p style={{ color: textColor }}>{description}</p>
       <div className="tech-stack-container">
         <div className="flex tech-stack">

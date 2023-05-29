@@ -6,6 +6,7 @@
     "background-color": "#0A9396",
     "text-color": "#FFF",
     "contrast-color": "#EE9B00",
+    "link": "budget-boss",
     "tech_stack": [
       {
         "title": "React.js",
@@ -32,6 +33,7 @@
     "background-color": "#CCA92D",
     "text-color": "#333",
     "contrast-color": "#A277FD",
+    "link": "card-heroes",
     "tech_stack": [
       {
         "title": "EJS",
@@ -62,6 +64,7 @@
     "background-color": "#338FE4",
     "text-color": "#FFF",
     "contrast-color": "#F85353",
+    "link": "scheduler",
     "tech_stack": [
       {
         "title": "React.js",
