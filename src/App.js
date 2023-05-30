@@ -5,6 +5,16 @@ import Text from "./components/Text";
 import Screen from "./components/Screen";
 import projects from "./data/projects.json";
 
+import budgetBossVideo from "./assets/budget-boss.mp4";
+import cardHeroesVideo from "./assets/card-heroes.mp4";
+import schedulerVideo from "./assets/scheduler.mp4";
+
+const VIDEO = {
+  "budget-boss": budgetBossVideo,
+  "card-heroes": cardHeroesVideo,
+  scheduler: schedulerVideo,
+};
+
 function App() {
   const [carouselState, setCarouselState] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -56,11 +66,12 @@ function App() {
             textColor={projects[carouselState]["text-color"]}
             link={projects[carouselState].link}
           />
-          <Screen />
+          <Screen video={VIDEO[projects[carouselState].link]} />
           <div className="flex navigation">
-            {projects.map((project) => {
+            {projects.map((project, idx) => {
               return (
                 <span
+                  key={idx}
                   className="flex pagination"
                   style={{
                     borderColor: projects[carouselState]["text-color"],

@@ -42,9 +42,9 @@ function Text({ title, description, techStack, textColor, link }) {
       <p style={{ color: textColor }}>{description}</p>
       <div className="tech-stack-container">
         <div className="flex tech-stack">
-          {techStack.map((tech) => {
+          {techStack.map((tech, idx) => {
             return (
-              <div className="flex tech">
+              <div key={idx} className="flex tech">
                 <span>{tech.title}</span>
                 {ICONS[tech.icon]}
               </div>

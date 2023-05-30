@@ -1,10 +1,10 @@
 import React from "react";
 import "./Screen.css";
 
-const Screen = () => {
+const Screen = ({ video }) => {
   return (
     <div className="flex screen">
-      <img src="https://code.visualstudio.com/assets/docs/languages/typescript/overview.png" />
+      <video src={video} loop autoPlay muted />
     </div>
   );
 };
