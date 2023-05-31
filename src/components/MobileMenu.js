@@ -1,14 +1,14 @@
 import React from "react";
-import "./Header.css";
+import "./MobileMenu.css";
 
-import { FaGithub, FaLinkedinIn, FaCopy, FaFileDownload } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaFileDownload } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import portfolio from "../assets/Pedro Lorandi - Resume.pdf";
 
-const Header = ({ textColor, buttonColor }) => {
+const MobileMenu = ({ textColor, buttonColor }) => {
   return (
-    <div className="header flex">
-      <h1 style={{ color: textColor }}>Pedro Lorandi</h1>
-      <div className="buttons desktop">
+    <div className="mobile-menu mobile">
+      <div className="buttons flex">
         <a href="https://github.com/pedrolorandi" target="_blank">
           <FaGithub
             className="FaGithub icon"
@@ -26,13 +26,14 @@ const Header = ({ textColor, buttonColor }) => {
           />
         </a>
         <div className="flex email">
-          <FaCopy
-            className="FaCopy icon"
-            size="1.25em"
-            title="Copy email"
-            color={textColor}
-          />
-          <span style={{ color: textColor }}>hello@pedrolorandi.com</span>
+          <a href="mailto:hello@pedrolorandi.com">
+            <MdEmail
+              className="mobile icon"
+              size="1.25em"
+              title="hello@pedrolorandi.com"
+              color={textColor}
+            />
+          </a>
         </div>
         <a
           className="button"
@@ -43,11 +44,11 @@ const Header = ({ textColor, buttonColor }) => {
           style={{ backgroundColor: buttonColor }}
         >
           <FaFileDownload className="icon" size="1.25em" color="#333" />
-          <span>Download Resume</span>
+          <span>Resume</span>
         </a>
       </div>
     </div>
   );
 };
 
-export default Header;
+export default MobileMenu;

@@ -6,7 +6,7 @@
 }
 
 .icon {
-  height: 1.25em;
+  font-size: 1.25em;
 }
 
 .buttons {
@@ -23,4 +23,18 @@
   margin-left: 0.7em;
   line-height: 0;
   font-size: 0.875em;
+}
+
+@media (max-width: 820px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header h1 {
+    width: 100%;
+    font-size: 2em;
+    line-height: inherit;
+    padding: 0.25em;
+  }
 }
