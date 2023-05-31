@@ -34,7 +34,7 @@ function Text({
         </div>
       </div>
       <p style={{ color: textColor }}>{description}</p>
-      <div className={`tech-stack-container ${flip && `initial`}`}>
+      <div className="tech-stack-container">
         <div className="flex tech-stack">
           {techStack.map((tech, idx) => {
             return (
