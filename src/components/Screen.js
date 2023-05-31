@@ -3,7 +3,7 @@ import "./Screen.css";
 
 const Screen = ({ video }) => {
   return (
-    <div className="flex screen">
+    <div className="screen screen-component">
       <video src={video} loop autoPlay muted />
     </div>
   );

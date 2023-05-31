@@ -4,20 +4,13 @@ import Header from "./components/Header";
 import Text from "./components/Text";
 import Screen from "./components/Screen";
 import projects from "./data/projects.json";
-
-import budgetBossVideo from "./assets/budget-boss.mp4";
-import cardHeroesVideo from "./assets/card-heroes.mp4";
-import schedulerVideo from "./assets/scheduler.mp4";
-
-const VIDEO = {
-  "budget-boss": budgetBossVideo,
-  "card-heroes": cardHeroesVideo,
-  scheduler: schedulerVideo,
-};
+import MobileMenu from "./components/MobileMenu";
+import VIDEO from "./data/video";
 
 function App() {
   const [carouselState, setCarouselState] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(0);
 
   useEffect(() => {
     const handleScroll = (e) => {
@@ -40,12 +33,41 @@ function App() {
       }
     };
 
+    const handleTouchStart = (e) => {
+      setTouchStartX(e.touches[0].clientX);
+    };
+
+    console.log("touchStartX", touchStartX);
+
+    const handleTouchMove = (e) => {
+      const touchX = e.touches[0].clientX;
+      const touchThreshold = 80;
+
+      if (touchStartX - touchX > touchThreshold) {
+        setCarouselState((prevState) =>
+          prevState === projects.length - 1 ? 0 : prevState + 1
+        );
+        setTouchStartX(touchX);
+      }
+
+      if (touchX - touchStartX > touchThreshold) {
+        setCarouselState((prevState) =>
+          prevState === 0 ? projects.length - 1 : prevState - 1
+        );
+        setTouchStartX(touchX);
+      }
+    };
+
     window.addEventListener("wheel", handleScroll);
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchmove", handleTouchMove);
 
     return () => {
       window.removeEventListener("wheel", handleScroll);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
     };
-  }, [isScrolling]);
+  }, [isScrolling, touchStartX]);
 
   return (
     <>
@@ -85,6 +107,10 @@ function App() {
             })}
           </div>
         </main>
+        <MobileMenu
+          textColor={projects[carouselState]["text-color"]}
+          buttonColor={projects[carouselState]["contrast-color"]}
+        />
       </div>
     </>
   );

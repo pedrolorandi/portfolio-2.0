@@ -27,17 +27,19 @@ const ICONS = {
 
 function Text({ title, description, techStack, textColor, link }) {
   return (
-    <div className="flex text-block">
-      <h2 style={{ color: textColor }}>{title}</h2>
-      <div className="button-container">
-        <a
-          className="button"
-          href={`https://github.com/pedrolorandi/${link}`}
-          target="_blank"
-        >
-          <FaGithub size="1.25em" color="#fff" />
-          <span>View on GitHub</span>
-        </a>
+    <div className="flex text-block text-component">
+      <div className="mobile-title">
+        <h2 style={{ color: textColor }}>{title}</h2>
+        <div className="button-container">
+          <a
+            className="button"
+            href={`https://github.com/pedrolorandi/${link}`}
+            target="_blank"
+          >
+            <FaGithub size="1.25em" color="#fff" />
+            <span className="desktop">View on GitHub</span>
+          </a>
+        </div>
       </div>
       <p style={{ color: textColor }}>{description}</p>
       <div className="tech-stack-container">
