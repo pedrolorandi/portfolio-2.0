@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import "./Text.css";
 import { FaGithub, ICONS } from "../data/icons";
 import { motion } from "framer-motion";
 
-function Text({ title, description, techStack, textColor, link, flip }) {
+function Text({
+  title,
+  description,
+  techStack,
+  textColor,
+  link,
+  flip,
+  setFlip,
+}) {
+  useEffect(() => {
+    setTimeout(() => {
+      setFlip(false);
+    }, 200);
+  }, [flip]);
+
   return (
     <div className="flex text-block text-component">
       <div className="mobile-title">
@@ -20,10 +34,7 @@ function Text({ title, description, techStack, textColor, link, flip }) {
         </div>
       </div>
       <p style={{ color: textColor }}>{description}</p>
-      <motion.div
-        animate={{ y: flip ? 100 : 0 }}
-        className="tech-stack-container"
-      >
+      <div className={`tech-stack-container ${flip && `initial`}`}>
         <div className="flex tech-stack">
           {techStack.map((tech, idx) => {
             return (
@@ -34,7 +45,7 @@ function Text({ title, description, techStack, textColor, link, flip }) {
             );
           })}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

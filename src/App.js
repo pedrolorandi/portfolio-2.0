@@ -13,8 +13,6 @@ function App() {
   const [touchStartX, setTouchStartX] = useState(0);
   const [flip, setFlip] = useState(true);
 
-  console.log(flip);
-
   useEffect(() => {
     const handleScroll = (e) => {
       const scrollDirection = e.deltaY > 0 ? "down" : "up";
@@ -23,13 +21,15 @@ function App() {
         setIsScrolling(true);
         setFlip(true);
 
-        scrollDirection === "down"
-          ? setCarouselState((prevState) =>
-              prevState === projects.length - 1 ? 0 : prevState + 1
-            )
-          : setCarouselState((prevState) =>
-              prevState === 0 ? projects.length - 1 : prevState - 1
-            );
+        setTimeout(() => {
+          scrollDirection === "down"
+            ? setCarouselState((prevState) =>
+                prevState === projects.length - 1 ? 0 : prevState + 1
+              )
+            : setCarouselState((prevState) =>
+                prevState === 0 ? projects.length - 1 : prevState - 1
+              );
+        }, 200);
 
         setTimeout(() => {
           setIsScrolling(false);
@@ -46,18 +46,22 @@ function App() {
       const touchThreshold = 80;
 
       if (touchStartX - touchX > touchThreshold) {
-        setCarouselState((prevState) =>
-          prevState === projects.length - 1 ? 0 : prevState + 1
-        );
-        setTouchStartX(touchX);
+        setTimeout(() => {
+          setCarouselState((prevState) =>
+            prevState === projects.length - 1 ? 0 : prevState + 1
+          );
+          setTouchStartX(touchX);
+        }, 200);
         setFlip(true);
       }
 
       if (touchX - touchStartX > touchThreshold) {
-        setCarouselState((prevState) =>
-          prevState === 0 ? projects.length - 1 : prevState - 1
-        );
-        setTouchStartX(touchX);
+        setTimeout(() => {
+          setCarouselState((prevState) =>
+            prevState === 0 ? projects.length - 1 : prevState - 1
+          );
+          setTouchStartX(touchX);
+        }, 200);
         setFlip(true);
       }
     };
@@ -92,8 +96,9 @@ function App() {
             textColor={projects[carouselState]["text-color"]}
             link={projects[carouselState].link}
             flip={flip}
+            setFlip={setFlip}
           />
-          <Screen video={VIDEO[projects[carouselState].link]} />
+          <Screen video={VIDEO[projects[carouselState].link]} flip={flip} />
           <div className="flex navigation">
             {projects.map((project, idx) => {
               return (
