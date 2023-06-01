@@ -30,9 +30,9 @@
     "id": 1,
     "title": "Card Heroes",
     "description": "Card Heroes is the ultimate destination for trading card enthusiasts. With over a million cards to choose from, we have the perfect card for every collector.",
-    "background-color": "#CCA92D",
-    "text-color": "#333",
-    "contrast-color": "#A277FD",
+    "background-color": "#9C9341",
+    "text-color": "#fff",
+    "contrast-color": "#8BE9FD",
     "link": "card-heroes",
     "tech_stack": [
       {
