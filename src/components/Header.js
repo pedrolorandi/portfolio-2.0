@@ -52,7 +52,7 @@ const Header = ({ buttonColor }) => {
         </a>
         <div className="flex icon-container">
           <FaCopy className="FaCopy icon" size="1.25em" title="Copy email" />
-          <span>hello@pedrolorandi.com</span>
+          <span className="email">hello@pedrolorandi.com</span>
         </div>
         <a
           className="button"

@@ -12,13 +12,10 @@
 }
 
 .buttons {
+  display: flex;
   align-items: center;
   gap: 1em;
   transition: transform 0.5s ease;
-}
-
-.hidden {
-  transform: translateY(+100%);
 }
 
 .icon-container {
@@ -31,6 +28,11 @@
   margin-left: 0.7em;
   line-height: 0;
   font-size: 0.875em;
+  display: none;
+}
+
+.icon-container span.email {
+  display: flex;
 }
 
 .icon {
@@ -73,8 +75,13 @@
     height: 100vh;
   }
 
+  .hidden {
+    transform: translateY(+100%);
+  }
+
   .icon-container span {
     font-size: 1.25em;
+    display: flex;
   }
 
   .container,
