@@ -4,14 +4,11 @@ import Header from "./components/Header";
 import Text from "./components/Text";
 import Screen from "./components/Screen";
 import projects from "./data/projects.json";
-import MobileMenu from "./components/MobileMenu";
 import VIDEO from "./data/video";
 
 function App() {
   const [carouselState, setCarouselState] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
-  const [touchStartX, setTouchStartX] = useState(0);
-  const [flip, setFlip] = useState(true);
 
   useEffect(() => {
     const handleScroll = (e) => {
@@ -19,7 +16,6 @@ function App() {
 
       if (!isScrolling) {
         setIsScrolling(true);
-        setFlip(true);
 
         setTimeout(() => {
           scrollDirection === "down"
@@ -37,45 +33,12 @@ function App() {
       }
     };
 
-    const handleTouchStart = (e) => {
-      setTouchStartX(e.touches[0].clientX);
-    };
-
-    const handleTouchMove = (e) => {
-      const touchX = e.touches[0].clientX;
-      const touchThreshold = 80;
-
-      if (touchStartX - touchX > touchThreshold) {
-        setTimeout(() => {
-          setCarouselState((prevState) =>
-            prevState === projects.length - 1 ? 0 : prevState + 1
-          );
-          setTouchStartX(touchX);
-        }, 200);
-        setFlip(true);
-      }
-
-      if (touchX - touchStartX > touchThreshold) {
-        setTimeout(() => {
-          setCarouselState((prevState) =>
-            prevState === 0 ? projects.length - 1 : prevState - 1
-          );
-          setTouchStartX(touchX);
-        }, 200);
-        setFlip(true);
-      }
-    };
-
     window.addEventListener("wheel", handleScroll);
-    window.addEventListener("touchstart", handleTouchStart);
-    window.addEventListener("touchmove", handleTouchMove);
 
     return () => {
       window.removeEventListener("wheel", handleScroll);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
     };
-  }, [isScrolling, touchStartX]);
+  }, [isScrolling]);
 
   return (
     <>
@@ -85,18 +48,33 @@ function App() {
         style={{ backgroundColor: projects[carouselState]["background-color"] }}
       >
         <Header
-          textColor={projects[carouselState]["text-color"]}
+          backgroundColor={projects[carouselState]["background-color"]}
           buttonColor={projects[carouselState]["contrast-color"]}
         />
         <main className="flex">
-          <Text
+          hi
+          <ul className="projects flex">
+            {projects.map((project) => {
+              // return (
+              //   <li key={project.id}>
+              //     <Text
+              //       title={project.title}
+              //       description={project.description}
+              //       techStack={project.tech_stack}
+              //       textColor={project["text-color"]}
+              //       link={project.link}
+              //     />
+              //     {/* <Screen video={VIDEO[project.link]} flip={flip} /> */}
+              //   </li>
+              // );
+            })}
+          </ul>
+          {/* <Text
             title={projects[carouselState].title}
             description={projects[carouselState].description}
             techStack={projects[carouselState].tech_stack}
             textColor={projects[carouselState]["text-color"]}
             link={projects[carouselState].link}
-            flip={flip}
-            setFlip={setFlip}
           />
           <Screen video={VIDEO[projects[carouselState].link]} flip={flip} />
           <div className="flex navigation">
@@ -115,12 +93,8 @@ function App() {
                 ></span>
               );
             })}
-          </div>
+          </div> */}
         </main>
-        <MobileMenu
-          textColor={projects[carouselState]["text-color"]}
-          buttonColor={projects[carouselState]["contrast-color"]}
-        />
       </div>
     </>
   );

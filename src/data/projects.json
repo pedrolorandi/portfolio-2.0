@@ -4,7 +4,6 @@
     "title": "BudgetBoss",
     "description": "The final Project for Lighthouse Labs. A user-friendly budgeting app that helps you effortlessly manage your finances, track expenses, and achieve your financial goals.",
     "background-color": "#0A9396",
-    "text-color": "#FFF",
     "contrast-color": "#EE9B00",
     "link": "budget-boss",
     "tech_stack": [
@@ -31,7 +30,6 @@
     "title": "Card Heroes",
     "description": "Card Heroes is the ultimate destination for trading card enthusiasts. With over a million cards to choose from, we have the perfect card for every collector.",
     "background-color": "#9C9341",
-    "text-color": "#fff",
     "contrast-color": "#8BE9FD",
     "link": "card-heroes",
     "tech_stack": [
@@ -62,7 +60,6 @@
     "title": "Interview Scheduler",
     "description": "Interview Scheduler is a single-page application (SPA) that allows users to book technical interviews between students and mentors.",
     "background-color": "#338FE4",
-    "text-color": "#FFF",
     "contrast-color": "#F85353",
     "link": "scheduler",
     "tech_stack": [
