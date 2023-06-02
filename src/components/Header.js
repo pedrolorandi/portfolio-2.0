@@ -7,6 +7,7 @@ import portfolio from "../assets/Pedro Lorandi - Resume.pdf";
 
 const Header = ({ buttonColor }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isCopiedVisible, setIsCopiedVisible] = useState(false);
 
   const handleCloseMenu = () => {
     setIsMenuOpen(false);
@@ -23,7 +24,12 @@ const Header = ({ buttonColor }) => {
       navigator.clipboard
         .writeText(email)
         .then(() => {
-          console.log("Ok");
+          setIsCopiedVisible(true);
+          console.log(isCopiedVisible);
+
+          setTimeout(() => {
+            setIsCopiedVisible(false);
+          }, 700);
         })
         .catch((error) => console.log(error));
     } else {
@@ -37,7 +43,7 @@ const Header = ({ buttonColor }) => {
       <span className="menu-button" onClick={handleOpenMenu}>
         <MdMenu size="2.5em" color="white" />
       </span>
-      <div className={`buttons ${isMenuOpen ? "" : "hidden"}`}>
+      <div className={`buttons${!isMenuOpen ? " hidden" : ""}`}>
         <span className="close-button" onClick={handleCloseMenu}>
           <MdClose size="2.5em" color="white" />
         </span>
@@ -65,6 +71,9 @@ const Header = ({ buttonColor }) => {
         </a>
 
         <div className="flex icon-container" onClick={handleCopyEmail}>
+          <div className={`copy${isCopiedVisible ? " visible" : ""}`}>
+            Copied!
+          </div>
           {window.innerWidth >= 820 ? (
             <FaCopy className="FaCopy icon" size="1.25em" title="Copy email" />
           ) : (
