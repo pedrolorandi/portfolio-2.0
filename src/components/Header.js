@@ -1,39 +1,87 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 
 import { FaGithub, FaLinkedinIn, FaCopy, FaFileDownload } from "react-icons/fa";
+import { MdEmail, MdMenu, MdClose } from "react-icons/md";
 import portfolio from "../assets/Pedro Lorandi - Resume.pdf";
 
-const Header = ({ textColor, buttonColor }) => {
+const Header = ({ buttonColor }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isCopiedVisible, setIsCopiedVisible] = useState(false);
+
+  const handleCloseMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const handleOpenMenu = () => {
+    setIsMenuOpen(true);
+  };
+
+  const handleCopyEmail = () => {
+    const email = "hello@pedrolorandi.com";
+
+    if (window.innerWidth >= 820) {
+      navigator.clipboard
+        .writeText(email)
+        .then(() => {
+          setIsCopiedVisible(true);
+          console.log(isCopiedVisible);
+
+          setTimeout(() => {
+            setIsCopiedVisible(false);
+          }, 700);
+        })
+        .catch((error) => console.log(error));
+    } else {
+      window.location.href = `mailto:${email}`;
+    }
+  };
+
   return (
     <div className="header flex">
-      <h1 style={{ color: textColor }}>Pedro Lorandi</h1>
-      <div className="buttons desktop">
+      <h1>Pedro Lorandi</h1>
+      <span className="menu-button" onClick={handleOpenMenu}>
+        <MdMenu size="2.5em" color="white" />
+      </span>
+      <div className={`buttons${!isMenuOpen ? " hidden" : ""}`}>
+        <span className="close-button" onClick={handleCloseMenu}>
+          <MdClose size="2.5em" color="white" />
+        </span>
         <a href="https://github.com/pedrolorandi" target="_blank">
-          <FaGithub
-            className="FaGithub icon"
-            size="1.25em"
-            title="github.com/pedrolorandi"
-            color={textColor}
-          />
+          <div className="flex icon-container">
+            <FaGithub
+              className="FaGithub icon"
+              size="1.25em"
+              title="github.com/pedrolorandi"
+            />
+
+            <span>github.com/pedrolorandi</span>
+          </div>
         </a>
         <a href="https://www.linkedin.com/in/pedrolorandi/" target="_blank">
-          <FaLinkedinIn
-            className="FaLinkedinIn icon"
-            size="1.25em"
-            title="linkedin.com/in/pedrolorandi/"
-            color={textColor}
-          />
+          <div className="flex icon-container">
+            <FaLinkedinIn
+              className="FaLinkedinIn icon"
+              size="1.25em"
+              title="linkedin.com/in/pedrolorandi/"
+            />
+
+            <span>linkedin.com/in/pedrolorandi</span>
+          </div>
         </a>
-        <div className="flex email">
-          <FaCopy
-            className="FaCopy icon"
-            size="1.25em"
-            title="Copy email"
-            color={textColor}
-          />
-          <span style={{ color: textColor }}>hello@pedrolorandi.com</span>
+
+        <div className="flex icon-container" onClick={handleCopyEmail}>
+          <div className={`copy${isCopiedVisible ? " visible" : ""}`}>
+            Copied!
+          </div>
+          {window.innerWidth >= 820 ? (
+            <FaCopy className="FaCopy icon" size="1.25em" title="Copy email" />
+          ) : (
+            <MdEmail className="FaCopy icon" size="1.25em" title="Copy email" />
+          )}
+          <span className="email">hello@pedrolorandi.com</span>
         </div>
+
         <a
           className="button"
           href={portfolio}
