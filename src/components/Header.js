@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Header.css";
 
 import { FaGithub, FaLinkedinIn, FaCopy, FaFileDownload } from "react-icons/fa";
-import { MdMenu, MdClose } from "react-icons/md";
+import { MdEmail, MdMenu, MdClose } from "react-icons/md";
 import portfolio from "../assets/Pedro Lorandi - Resume.pdf";
 
 const Header = ({ buttonColor }) => {
@@ -16,7 +16,20 @@ const Header = ({ buttonColor }) => {
     setIsMenuOpen(true);
   };
 
-  console.log(isMenuOpen);
+  const handleCopyEmail = () => {
+    const email = "hello@pedrolorandi.com";
+
+    if (window.innerWidth >= 820) {
+      navigator.clipboard
+        .writeText(email)
+        .then(() => {
+          console.log("Ok");
+        })
+        .catch((error) => console.log(error));
+    } else {
+      window.location.href = `mailto:${email}`;
+    }
+  };
 
   return (
     <div className="header flex">
@@ -50,10 +63,16 @@ const Header = ({ buttonColor }) => {
             <span>linkedin.com/in/pedrolorandi</span>
           </div>
         </a>
-        <div className="flex icon-container">
-          <FaCopy className="FaCopy icon" size="1.25em" title="Copy email" />
+
+        <div className="flex icon-container" onClick={handleCopyEmail}>
+          {window.innerWidth >= 820 ? (
+            <FaCopy className="FaCopy icon" size="1.25em" title="Copy email" />
+          ) : (
+            <MdEmail className="FaCopy icon" size="1.25em" title="Copy email" />
+          )}
           <span className="email">hello@pedrolorandi.com</span>
         </div>
+
         <a
           className="button"
           href={portfolio}
