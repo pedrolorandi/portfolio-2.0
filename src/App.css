@@ -28,8 +28,12 @@ main {
 }
 
 .projects {
+  min-width: 100vw;
   list-style-type: none;
-  overflow: hidden;
+}
+
+.projects li {
+  min-width: 100vw;
 }
 
 .navigation {
@@ -65,6 +69,27 @@ main {
   }
 
   .container {
-    position: fixed;
+    padding: 0;
+  }
+
+  main {
+    padding: 0;
+  }
+
+  .projects {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    z-index: 9;
+    gap: 3em;
+  }
+
+  .projects::-webkit-scrollbar {
+    display: none;
+  }
+
+  .projects li {
+    scroll-snap-align: center;
   }
 }

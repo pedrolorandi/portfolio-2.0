@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useProjectRef from "./hooks/useProjectRef";
 import "./App.css";
 import Header from "./components/Header";
 import Text from "./components/Text";
@@ -10,9 +11,24 @@ function App() {
   const [carouselState, setCarouselState] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
 
+  const references = useProjectRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      for (let entry of entries) {
+        entry.isIntersecting && setCarouselState(entry.target.id);
+      }
+    });
+    projects.map((project) => {
+      observer.observe(references.current[project.id]);
+    });
+  }, []);
+
   useEffect(() => {
     const handleScroll = (e) => {
       const scrollDirection = e.deltaY > 0 ? "down" : "up";
+
+      console.log(projects[carouselState]);
 
       if (!isScrolling) {
         setIsScrolling(true);
@@ -52,48 +68,26 @@ function App() {
           buttonColor={projects[carouselState]["contrast-color"]}
         />
         <main className="flex">
-          hi
           <ul className="projects flex">
             {projects.map((project) => {
-              // return (
-              //   <li key={project.id}>
-              //     <Text
-              //       title={project.title}
-              //       description={project.description}
-              //       techStack={project.tech_stack}
-              //       textColor={project["text-color"]}
-              //       link={project.link}
-              //     />
-              //     {/* <Screen video={VIDEO[project.link]} flip={flip} /> */}
-              //   </li>
-              // );
-            })}
-          </ul>
-          {/* <Text
-            title={projects[carouselState].title}
-            description={projects[carouselState].description}
-            techStack={projects[carouselState].tech_stack}
-            textColor={projects[carouselState]["text-color"]}
-            link={projects[carouselState].link}
-          />
-          <Screen video={VIDEO[projects[carouselState].link]} flip={flip} />
-          <div className="flex navigation">
-            {projects.map((project, idx) => {
               return (
-                <span
-                  key={idx}
-                  className="flex pagination"
-                  style={{
-                    borderColor: projects[carouselState]["text-color"],
-                    backgroundColor:
-                      carouselState === project.id &&
-                      projects[carouselState]["text-color"],
-                  }}
-                  onClick={() => setCarouselState(project.id)}
-                ></span>
+                <li
+                  id={project.id}
+                  key={project.id}
+                  ref={(el) => (references.current[project.id] = el)}
+                >
+                  <Screen video={VIDEO[project.link]} />
+                  <Text
+                    title={project.title}
+                    description={project.description}
+                    techStack={project.tech_stack}
+                    textColor={project["text-color"]}
+                    link={project.link}
+                  />
+                </li>
               );
             })}
-          </div> */}
+          </ul>
         </main>
       </div>
     </>
