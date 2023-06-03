@@ -37,7 +37,7 @@ main {
   flex-direction: column;
   justify-content: center;
   gap: 1em;
-  z-index: 99;
+  z-index: 9;
 }
 
 .pagination {

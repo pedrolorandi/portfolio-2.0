@@ -87,7 +87,13 @@ function App() {
           </ul>
           <div className="navigation flex">
             {projects.map((project) => {
-              return <span className="pagination flex current"></span>;
+              return (
+                <span
+                  className={`pagination flex ${
+                    Number(project.id) == carouselState ? "current" : ""
+                  }`}
+                ></span>
+              );
             })}
           </div>
         </main>
