@@ -85,6 +85,11 @@ function App() {
               );
             })}
           </ul>
+          <div className="navigation flex">
+            {projects.map((project) => {
+              return <span className="pagination flex current"></span>;
+            })}
+          </div>
         </main>
       </div>
     </>
