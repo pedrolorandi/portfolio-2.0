@@ -26,26 +26,23 @@ function App() {
 
   useEffect(() => {
     const handleScroll = (e) => {
-      const scrollDirection = e.deltaY > 0 ? "down" : "up";
-
-      console.log(projects[carouselState]);
+      const scrollDirection = e.deltaY;
 
       if (!isScrolling) {
         setIsScrolling(true);
 
         setTimeout(() => {
-          scrollDirection === "down"
-            ? setCarouselState((prevState) =>
-                prevState === projects.length - 1 ? 0 : prevState + 1
+          scrollDirection > 0
+            ? setCarouselState(
+                carouselState === projects.length - 1 ? 0 : carouselState + 1
               )
-            : setCarouselState((prevState) =>
-                prevState === 0 ? projects.length - 1 : prevState - 1
+            : setCarouselState(
+                carouselState === 0 ? projects.length - 1 : carouselState - 1
               );
+          setTimeout(() => {
+            setIsScrolling(false);
+          }, 1000);
         }, 200);
-
-        setTimeout(() => {
-          setIsScrolling(false);
-        }, 1000);
       }
     };
 
