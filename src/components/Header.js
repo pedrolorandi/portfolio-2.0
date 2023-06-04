@@ -6,7 +6,7 @@ import { MdEmail, MdMenu, MdClose } from "react-icons/md";
 import portfolio from "../assets/Pedro Lorandi - Resume.pdf";
 
 const Header = ({ buttonColor }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCopiedVisible, setIsCopiedVisible] = useState(false);
 
   const handleCloseMenu = () => {
@@ -44,9 +44,6 @@ const Header = ({ buttonColor }) => {
         <MdMenu size="2.5em" color="white" />
       </span>
       <div className={`buttons${!isMenuOpen ? " hidden" : ""}`}>
-        <span className="close-button" onClick={handleCloseMenu}>
-          <MdClose size="2.5em" color="white" />
-        </span>
         <a href="https://github.com/pedrolorandi" target="_blank">
           <div className="flex icon-container">
             <FaGithub
@@ -93,6 +90,12 @@ const Header = ({ buttonColor }) => {
           <FaFileDownload className="icon" size="1.25em" color="#333" />
           <span>Download Resume</span>
         </a>
+
+        <div className="close-container">
+          <span className="close-button" onClick={handleCloseMenu}>
+            <MdClose size="2.5em" color="white" />
+          </span>
+        </div>
       </div>
     </div>
   );
