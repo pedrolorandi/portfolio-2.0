@@ -16,7 +16,10 @@ function App() {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       for (let entry of entries) {
-        entry.isIntersecting && setCarouselState(entry.target.id);
+        if (entry.isIntersecting) {
+          window.innerWidth < 820 && setCarouselState(Number(entry.target.id));
+          entry.target.querySelector("video").currentTime = 0;
+        }
       }
     });
     projects.map((project) => {
@@ -53,6 +56,10 @@ function App() {
     };
   }, [isScrolling]);
 
+  useEffect(() => {
+    references.current[carouselState].querySelector("video").currentTime = 0;
+  }, [carouselState]);
+
   return (
     <>
       <div className="shadow"></div>
@@ -69,7 +76,7 @@ function App() {
             {projects.map((project) => {
               return (
                 <li
-                  className={`${
+                  className={`flex ${
                     Number(project.id) === carouselState
                       ? "current-project"
                       : ""
@@ -77,6 +84,7 @@ function App() {
                   id={project.id}
                   key={project.id}
                   ref={(el) => (references.current[project.id] = el)}
+                  style={{ "--id": Number(project.id) }}
                 >
                   <Screen video={VIDEO[project.link]} />
                   <Text
@@ -94,6 +102,7 @@ function App() {
             {projects.map((project) => {
               return (
                 <span
+                  key={project.id}
                   className={`pagination flex ${
                     Number(project.id) == carouselState ? "current" : ""
                   }`}
