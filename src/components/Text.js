@@ -11,6 +11,7 @@ function Text({ title, description, techStack, link }) {
           className="button"
           href={`https://github.com/pedrolorandi/${link}`}
           target="_blank"
+          rel="noreferrer"
         >
           <FaGithub size="1.25em" color="#fff" />
           <span className="desktop">View on GitHub</span>

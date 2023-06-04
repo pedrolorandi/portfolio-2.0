@@ -44,7 +44,11 @@ const Header = ({ buttonColor }) => {
         <MdMenu size="2.5em" color="white" />
       </span>
       <div className={`buttons${!isMenuOpen ? " hidden" : ""}`}>
-        <a href="https://github.com/pedrolorandi" target="_blank">
+        <a
+          href="https://github.com/pedrolorandi"
+          target="_blank"
+          rel="noreferrer"
+        >
           <div className="flex icon-container">
             <FaGithub
               className="FaGithub icon"
@@ -55,7 +59,11 @@ const Header = ({ buttonColor }) => {
             <span>github.com/pedrolorandi</span>
           </div>
         </a>
-        <a href="https://www.linkedin.com/in/pedrolorandi/" target="_blank">
+        <a
+          href="https://www.linkedin.com/in/pedrolorandi/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <div className="flex icon-container">
             <FaLinkedinIn
               className="FaLinkedinIn icon"

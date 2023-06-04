@@ -23,7 +23,7 @@ function App() {
         }
       }
     });
-    projects.map((project) => {
+    projects.forEach((project) => {
       observer.observe(references.current[project.id]);
     });
   }, []);
@@ -106,7 +106,7 @@ function App() {
                 <span
                   key={project.id}
                   className={`pagination flex ${
-                    Number(project.id) == carouselState ? "current" : ""
+                    Number(project.id) === carouselState ? "current" : ""
                   }`}
                 ></span>
               );
