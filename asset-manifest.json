@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/portfolio-2.0/static/css/main.c64cfafd.css",
+    "main.js": "/portfolio-2.0/static/js/main.abaa97f2.js",
+    "static/js/787.b597a222.chunk.js": "/portfolio-2.0/static/js/787.b597a222.chunk.js",
+    "static/media/card-heroes.mp4": "/portfolio-2.0/static/media/card-heroes.96e80618239d41160152.mp4",
+    "static/media/budget-boss.mp4": "/portfolio-2.0/static/media/budget-boss.6f500431da48ed209300.mp4",
+    "static/media/scheduler.mp4": "/portfolio-2.0/static/media/scheduler.a7daa4731151662427f8.mp4",
+    "static/media/Pedro Lorandi - Resume.pdf": "/portfolio-2.0/static/media/Pedro Lorandi - Resume.f42d3ae0a9947906722d.pdf",
+    "index.html": "/portfolio-2.0/index.html",
+    "main.c64cfafd.css.map": "/portfolio-2.0/static/css/main.c64cfafd.css.map",
+    "main.abaa97f2.js.map": "/portfolio-2.0/static/js/main.abaa97f2.js.map",
+    "787.b597a222.chunk.js.map": "/portfolio-2.0/static/js/787.b597a222.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c64cfafd.css",
+    "static/js/main.abaa97f2.js"
+  ]
+}
