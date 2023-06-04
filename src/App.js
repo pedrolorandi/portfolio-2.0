@@ -69,6 +69,11 @@ function App() {
             {projects.map((project) => {
               return (
                 <li
+                  className={`${
+                    Number(project.id) === carouselState
+                      ? "current-project"
+                      : ""
+                  }`}
                   id={project.id}
                   key={project.id}
                   ref={(el) => (references.current[project.id] = el)}
