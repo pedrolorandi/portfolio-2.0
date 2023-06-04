@@ -13,6 +13,7 @@ function App() {
 
   const references = useProjectRef();
 
+  // Mobile
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       for (let entry of entries) {
@@ -27,6 +28,7 @@ function App() {
     });
   }, []);
 
+  // Desktop
   useEffect(() => {
     const handleScroll = (e) => {
       const scrollDirection = e.deltaY;
